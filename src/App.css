@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan|Fjalla+One');
+
+.App {
+  text-align: center;
+}
+
+body {
+  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+}
+
+img {
+  width: 125px;
+}
+
+.SearchBar input {
+  width: 250px;
+}
+
+.jumbotron {
+  color: white;
+  font-family: 'Fjalla One', sans-serif;
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 13px 18px 35px -1px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 13px 18px 35px -1px rgba(0, 0, 0, 1);
+  box-shadow: 13px 18px 35px -1px rgba(0, 0, 0, 1);
+}
+
+.jumbotron h1, .jumbotron h3 {
+  font-family: 'Baloo Bhaijaan', cursive;
+}
+
+.navbar {
+  border-radius: 0;
+}
+
+.Pokemon {
+  margin-top: 25px;
+}
+
+.Pokemon ul {
+  display: inline-block;
+  text-align: left;
+}
