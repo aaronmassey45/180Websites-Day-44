@@ -7,7 +7,7 @@ function Pokemon(props) {
   //maps through the array and returns the pokemons types
   const types = data.map(type => {
     return <li key={type[1].type.name}>{type[1].type.name}</li>;
-  })
+  });
   return (
     <Jumbotron className="Pokemon animated flipInX">
       <Grid>
@@ -19,7 +19,7 @@ function Pokemon(props) {
           <Image src={props.data.sprites.front_default} className='animated rotateIn'/>
         </Row>
         <Row>
-          <p>{props.des}</p>
+          <p>{props.description}</p>
         </Row>
         <hr/>
         <Row>

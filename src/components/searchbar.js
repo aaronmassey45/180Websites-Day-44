@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-export default class SearchBar extends Component {
+import {fetchPokemon, fetchSpeciesData} from '../actions'
+
+class SearchBar extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      search: null
+      search: ''
     }
   }
 
@@ -15,7 +19,9 @@ export default class SearchBar extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.onSearchbarSubmit(this.state.search)
+    this.props.fetchPokemon(this.state.search.toLowerCase());
+    this.props.fetchSpeciesData(this.state.search.toLowerCase());
+    this.setState({ search: '' })
   }
 
   render() {
@@ -24,8 +30,8 @@ export default class SearchBar extends Component {
         <form onSubmit={this.handleSubmit}>
           <input type="text"
             onChange={this.handleChange}
-            value={this.state.value}
-            placeholder='Search a pokemon! (lowercase or id)'
+            value={this.state.search}
+            placeholder='Search a pokemon by name or id!'
           />
           <button type='submit'>Submit</button>
         </form>
@@ -33,3 +39,9 @@ export default class SearchBar extends Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({fetchPokemon, fetchSpeciesData}, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);

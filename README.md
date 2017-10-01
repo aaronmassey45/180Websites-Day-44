@@ -1,9 +1,10 @@
 ## PokeApp
 Search for your favorite Pokémon!
-Uses the [PokeAPI](https://pokeapi.co/) to fetch data through a Promise based axios get call.
+Uses the [PokeAPI](https://pokeapi.co/) to fetch data.
+Handles promise with Redux middleware
 
 ## Screenshot
-View this project [here](http://aaronmassey.pro/180Websites/Day-44/)
+View this project [here](http://aaronmassey.pro/PokeApp/)
 ![Screenshot](Screenshot.png)
 
 ## Tech/Framework
@@ -13,6 +14,7 @@ View this project [here](http://aaronmassey.pro/180Websites/Day-44/)
 * Animate.css
 * JavaScript
 * ReactJs
+* Redux
 
 ## Credits
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
