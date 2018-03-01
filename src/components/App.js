@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Grid } from 'react-bootstrap';
+import { MuiThemeProvider } from 'material-ui';
 
 import { fetchPokemon } from '../actions';
 import Navbar from '../containers/navbar';
@@ -16,27 +17,28 @@ class App extends Component {
 
 	render() {
 		const { data, errMessage } = this.props.pokeData;
-    console.log(this.props.pokeData);
 
 		return (
-			<div className="App">
-				<Navbar brand="PokeApp!" />
-				<Grid>
-					<SearchBar />
-					{!data ? (
-						!errMessage ? (
-							<div>
-								<h2>Loading...</h2>
-								<i className="fa fa-spinner fa-pulse fa-3x fa-fw" />
-							</div>
+			<MuiThemeProvider>
+				<div>
+					<Navbar brand="PokeApp!" />
+					<Grid className="App">
+						<SearchBar />
+						{!data ? (
+							!errMessage ? (
+								<div>
+									<h2>Loading...</h2>
+									<i className="fa fa-spinner fa-pulse fa-3x fa-fw" />
+								</div>
+							) : (
+								<h2>{errMessage}</h2>
+							)
 						) : (
-							<h2>{errMessage}</h2>
-						)
-					) : (
-						<Pokemon data={data} />
-					)}
-				</Grid>
-			</div>
+							<Pokemon data={data} />
+						)}
+					</Grid>
+				</div>
+			</MuiThemeProvider>
 		);
 	}
 }
