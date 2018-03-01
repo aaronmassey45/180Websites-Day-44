@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import {fetchPokemon, fetchSpeciesData} from '../actions'
+import {fetchPokemon} from '../actions'
 
 class SearchBar extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class SearchBar extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.fetchPokemon(this.state.search.toLowerCase());
-    this.props.fetchSpeciesData(this.state.search.toLowerCase());
+    // this.props.fetchSpeciesData(this.state.search.toLowerCase());
     this.setState({ search: '' })
   }
 
@@ -41,7 +41,7 @@ class SearchBar extends Component {
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({fetchPokemon, fetchSpeciesData}, dispatch)
+  return bindActionCreators({fetchPokemon}, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(SearchBar);
